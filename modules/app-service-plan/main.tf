@@ -1,0 +1,9 @@
+resource "azurerm_service_plan" "zemter" {
+  name                = "${var.project}-app-service-plan-${var.env}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  sku_name            =var.sku
+  os_type             = azurerm_service_plan.zemter.os_type  
+
+  tags = var.tags
+}
