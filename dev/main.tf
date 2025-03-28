@@ -30,7 +30,7 @@ module "app_service_plan" {
 module "appservices" {
   for_each                             = var.app_services_list
 
-  source                               = "../modules/appservice"
+  source                               = "../modules/app-service"
   service_name                         = each.value.name
   app_service_plan_id                  = module.app_service_plan.app_service_plan_id
   location                             = var.location
