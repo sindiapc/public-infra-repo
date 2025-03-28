@@ -31,7 +31,7 @@ module "appservices" {
   for_each                             = var.app_services_list
 
   source                               = "../modules/app-service"
-  service_name                         = each.value.name
+  service_name                         = "${each.value.name}-${var.environment}-${var.project}"
   app_service_plan_id                  = module.app_service_plan.app_service_plan_id
   location                             = var.location
   resource_group_name                  = azurerm_resource_group.backend-rg.name
