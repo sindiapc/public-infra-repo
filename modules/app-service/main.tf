@@ -5,6 +5,7 @@ resource "azurerm_linux_web_app" "zemter_web" {
   service_plan_id     = var.app_service_plan_id
 
   site_config {
+    always_on = false
     ftps_state = "FtpsOnly"
     http2_enabled = true
     app_command_line = var.app_command_line
