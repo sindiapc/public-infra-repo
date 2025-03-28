@@ -26,8 +26,7 @@ variable "tags" {
   description = "A map of tags to apply to resources provisioned"
   default = {
     "Owner"       = "pc acet",
-    "Project"     = "zemter",
-    "Environment" = var.environment
+    "Project"     = "zemter"
   }
 }
 variable "app_service_plan_sku" {

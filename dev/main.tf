@@ -22,7 +22,10 @@ module "app_service_plan" {
   resource_group_name = azurerm_resource_group.backend-rg.name
   env                 = "${var.environment}"
   sku                 = var.app_service_plan_sku
-  tags = var.tags
+  tags = merge(  
+    var.tags,  
+    { "Environment" = var.environment }  
+  ) 
 }
 
 
