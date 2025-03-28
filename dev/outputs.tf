@@ -4,7 +4,3 @@ output "resource_group_name" {
 }  
   
 
-output "app_service_plan_name" {  
-  value       = module.app_service_plan.name  
-  description = "The name of the App Service Plan created by the module."  
-}  
