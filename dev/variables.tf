@@ -41,3 +41,20 @@ variable "user_object_ids" {
     "test guid"
   ]
 }
+variable "app_services_list" {
+  description = "A map of app service names."
+  type = map(object({
+    name             = string
+    app_command_line = string
+  }))
+  default = {
+    "alpha-web" = {
+      name  = "alpha-web"
+      app_command_line = "dotnet zemter.alpha.api.dll"
+    }
+    "beta-web" = {
+      name  = "beta-web"
+      app_command_line = "dotnet dotnet zemter.beta.api.dll"
+    }
+  }
+}

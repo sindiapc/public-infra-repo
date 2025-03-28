@@ -1,4 +1,4 @@
-resource "azurerm_service_plan" "zembiec" {
+resource "azurerm_service_plan" "zemter" {
   name                = "${var.project}-app-service-plan-${var.env}"
   location            = var.location
   resource_group_name = var.resource_group_name

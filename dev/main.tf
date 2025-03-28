@@ -27,6 +27,22 @@ module "app_service_plan" {
     { "Environment" = var.environment }  
   ) 
 }
+module "appservices" {
+  for_each                             = var.app_services_list
+
+  source                               = "../modules/appservice"
+  service_name                         = each.value.name
+  app_service_plan_id                  = module.app_service_plan.app_service_plan_id
+  location                             = var.location
+  resource_group_name                  = azurerm_resource_group.backend-rg.name
+  # storage_account_key                  = module.storage.backend_storage_account_key
+  app_command_line                     = each.value.app_command_line
+ 
+  tags = merge(  
+    var.tags,  
+    { "Environment" = var.environment }  
+  ) 
+}
 
 
 
